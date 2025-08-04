@@ -12,6 +12,12 @@
     "language": "Svelte"
   },
   {
+    "name": "ckant.github.io",
+    "link": "https://github.com/ckant/ckant.github.io",
+    "description": "Source for ckant.com",
+    "language": "Svelte"
+  },
+  {
     "name": "joplin-plugin-editor-themes",
     "link": "https://github.com/ckant/joplin-plugin-editor-themes",
     "description": "Joplin plugin that applies 40+ editor themes ",
