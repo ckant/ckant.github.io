@@ -24,7 +24,7 @@
         <path
           d="m10.5 22.7c-2.33 1-4.92 0.833-4.92 0.833-1.68 0.146-3.12-4.01-2.48-4.73l3.32-5.1-1.75-3.42s5.01-1.42 7.88 2.09c0.344 0.42 0.794 0.743 1.28 0.987 0.0298 0.015 0.0602 0.0302 0.0912 0.0456 2.59 1.29 5.55 1.57 8.38 0.998 7.22-1.46 14.1-1.37 21.7 2.21 7.62 3.58 14.5-2.25 13.6-7.5-0.793-4.65 3.56-7.58 6.75-5"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -32,7 +32,7 @@
         <path
           d="m14.1 35.8c0.601-2.21 8.49-3.65 8.49-3.65s3.23-1.2 1.43-4.5"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -40,7 +40,7 @@
         <path
           d="m16.3 20.2c-1.54 1.83-3.89 4.8-0.44 9.16 0 0-6.76 2.85-6.01 8.03 0 0 0.362 2.48 2.4 2.4"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -48,7 +48,7 @@
         <path
           d="m21.5 37c-1.16 7.25 2.39 6.06 3.02 5.66 1.15-0.717 1.85-9.85 3.95-11.3 1.59-1.1 8.17-0.302 8.17-0.302"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -56,7 +56,7 @@
         <path
           d="m36.5 28.3c0.0911 1.74 0.753 3.4 1.73 4.84 0.662 0.973 1.8 2.32 1.45 2.98-4.48 8.5 0.622 7.02 1.08 6.17 3.19-5.92 6.12-4.1 4.65-10.5 0 0 5.27-1.81 5.52-7.98"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -64,7 +64,7 @@
         <path
           d="m46.2 32.6s2.37 3.2 7.76 2.69c0 0-3.33 6.76 0 7.62 1.92 0.494 4.72-11.2 4.72-11.2s-1.84-0.794-3.95-4.18"
           fill="none"
-          stroke="#000"
+          stroke="#000000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -80,7 +80,7 @@
 <style>
   footer {
     display: grid;
-    grid-template-rows: 2rem 2rem;
+    grid-template-rows: var(--cat-footer-height) var(--text-footer-height);
   }
 
   .cat-section {
@@ -91,13 +91,12 @@
 
   .cat-button {
     cursor: pointer;
-    border: none;
-    background: none;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
 
   .cat-icon {
-    margin-right: 0.5rem;
-    height: 1.75rem;
+    height: var(--cat-height);
   }
 
   .text-section {

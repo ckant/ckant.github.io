@@ -4,28 +4,6 @@
   let { children }: { children: Snippet } = $props()
 </script>
 
-<svelte:head>
-  <meta name="theme-color" content="var(--theme-accent-color)" />
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-
-  <link
-    rel="preload"
-    href="/fonts/Outfit.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    href="/fonts/PublicSans.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-
-  <link rel="preload" href="/images/me.webp" as="image" type="image/webp" fetchpriority="high" />
-</svelte:head>
-
 {@render children()}
 
 <style>
@@ -54,20 +32,21 @@
   }
 
   :root {
+    /* Colors */
     --theme-primary-color: #00aaff;
     --theme-accent-color: color-mix(in srgb, var(--theme-primary-color), #ffffff 50%);
+    --theme-container-color: #ffffff;
 
     --primary-bg-color: var(--theme-primary-color);
     --secondary-bg-color: var(--theme-accent-color);
-    --text-color: #000000;
-    --icon-color: var(--text-color);
-    --logo-color: #ffffff;
-    --text-bg-color: #ffffff;
+    --icon-color: #000000;
+    --logo-color: var(--theme-container-color);
+    --text-bg-color: var(--theme-container-color);
     --icon-bg-color: var(--text-bg-color);
     --border-color: #000000;
-    --border-radius: 0.375rem;
-    --box-shadow-color: #000000;
+    --box-shadow-color: var(--border-color);
 
+    /* Text */
     --primary-font-family:
       "Public Sans", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -79,41 +58,54 @@
     --monospace-font-family:
       ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 
-    --heading-line-height: 1.15;
-    --text-line-height: 1.4;
-    --monospace-line-height: 1.15;
-
+    /* Widths and heights */
     --header-height: 4rem;
+
+    --text-footer-height: 2rem;
+    --cat-footer-height: var(--text-footer-height);
+    --footer-height: calc(var(--cat-footer-height) + var(--text-footer-height));
+
     --main-height: 1fr;
     --main-min-height: calc(
       100vh - var(--footer-height) - var(--spacing) - var(--header-height) - var(--spacing)
     );
     --main-max-width: 80rem;
-    --footer-height: 4rem;
 
+    --project-min-width: 18.75rem;
+    --pic-min-width: var(--project-min-width);
+    --pic-max-width: 25rem;
+
+    --button-size: 2.25rem;
+    --icon-size: 1.2rem;
+    --cat-height: 1.75rem;
+
+    /* Spacing */
     --spacing: 1rem;
+
+    /* Borders and box shadows */
+    --border-radius: 0.375rem;
+
+    --thick-border-width: 0.25rem;
+    --medium-border-width: 0.2rem;
+    --normal-border-width: 0.125rem;
+    --thin-border-width: 0.0625rem;
+
+    --thick-border: var(--thick-border-width) solid var(--border-color);
+    --medium-border: var(--medium-border-width) solid var(--border-color);
+    --normal-border: var(--normal-border-width) solid var(--border-color);
+    --thin-border: var(--thin-border-width) solid var(--border-color);
 
     --box-shadow-offset: 0.25rem;
     --box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) 0 0 var(--box-shadow-color);
 
+    --thick-box-outline-size: calc((var(--thick-border-width) * 2) + (var(--box-shadow-offset)));
+    --medium-box-outline-size: calc((var(--medium-border-width) * 2) + (var(--box-shadow-offset)));
+    --normal-box-outline-size: calc((var(--normal-border-width) * 2) + (var(--box-shadow-offset)));
+    --thin-box-outline-size: calc((var(--thin-border-width) * 2) + (var(--box-shadow-offset)));
+
     --box-shadow-translate: var(--box-shadow-offset) var(--box-shadow-offset);
     --box-shadow-untranslate: calc(0rem - var(--box-shadow-offset))
       calc(0rem - var(--box-shadow-offset));
-
-    --thick-border-size: 0.25rem;
-    --medium-border-size: 0.2rem;
-    --normal-border-size: 0.125rem;
-    --thin-border-size: 0.0625rem;
-
-    --thick-border: var(--thick-border-size) solid var(--border-color);
-    --medium-border: var(--medium-border-size) solid var(--border-color);
-    --normal-border: var(--normal-border-size) solid var(--border-color);
-    --thin-border: var(--thin-border-size) solid var(--border-color);
-
-    --thick-box-outline-size: calc((var(--thick-border-size) * 2) + (var(--box-shadow-offset)));
-    --medium-box-outline-size: calc((var(--medium-border-size) * 2) + (var(--box-shadow-offset)));
-    --normal-box-outline-size: calc((var(--normal-border-size) * 2) + (var(--box-shadow-offset)));
-    --thin-box-outline-size: calc((var(--thin-border-size) * 2) + (var(--box-shadow-offset)));
   }
 
   :global {
@@ -135,9 +127,10 @@
       }
 
       html {
-        line-height: var(--text-line-height);
+        line-height: 1.4;
         font-family: var(--primary-font-family), system-ui;
         -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
         font-style: normal;
         font-weight: 400;
         font-optical-sizing: auto;
@@ -154,24 +147,35 @@
       kbd,
       samp,
       pre {
-        line-height: var(--monospace-line-height);
+        line-height: 1.15;
         font-family: var(--monospace-font-family), ui-monospace;
       }
 
-      :where(h1) {
-        font-size: 2.5rem;
+      a {
+        color: inherit;
+        text-decoration: inherit;
       }
 
-      small {
-        font-size: 0.8rem;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: inherit;
+        font-size: inherit;
       }
 
       button,
       input,
       select,
       textarea {
+        appearance: none;
         margin: 0;
-        line-height: var(--text-line-height);
+        border: none;
+        background: transparent;
+        padding: 0;
+        line-height: 1.4;
         font-family: inherit;
       }
     }

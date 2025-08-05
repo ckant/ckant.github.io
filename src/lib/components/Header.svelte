@@ -111,7 +111,7 @@
     align-items: center;
     border-bottom: var(--thick-border);
     background-color: var(--secondary-bg-color);
-    padding: 0 1rem;
+    padding: 0 var(--spacing);
     width: 100%;
     height: 100%;
   }
@@ -138,7 +138,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
+    gap: calc(0.75 * var(--spacing));
     height: 100%;
   }
 
@@ -153,13 +153,13 @@
     border: var(--normal-border);
     border-radius: var(--border-radius);
     background-color: var(--icon-bg-color);
-    aspect-ratio: 1;
-    height: 2.25rem;
+    width: var(--button-size);
+    height: var(--button-size);
 
     &:after {
       position: absolute;
-      top: calc(0rem - var(--normal-border-size));
-      left: calc(0rem - var(--normal-border-size));
+      top: calc(0rem - var(--normal-border-width));
+      left: calc(0rem - var(--normal-border-width));
       width: calc(100% + var(--normal-box-outline-size));
       height: calc(100% + var(--normal-box-outline-size));
       content: "";
@@ -178,8 +178,8 @@
   }
 
   .header-button-icon {
-    aspect-ratio: 1;
-    width: 1.2rem;
+    width: var(--icon-size);
+    height: var(--icon-size);
     color: var(--icon-color);
   }
 

@@ -16,20 +16,19 @@
 
 <style>
   .pic {
-    --pic-min-width: 18.75rem;
     --fixed-size-pic-width: var(--pic-min-width);
     --full-size-pic-width: 100%;
 
     aspect-ratio: 1;
     width: var(--full-size-pic-width);
     min-width: var(--pic-min-width);
-    max-width: 25rem;
+    max-width: var(--pic-max-width);
 
     /**
      * Switch to full size pic in single column layout.
      *
      * Note:
-     * This is `var(--pic-min-width) + var(--main-gap-size) + var(--project-min-width)`.
+     * This is `var(--pic-min-width) + var(--spacing) + var(--project-min-width)`.
      * Container size queries currently don't support calculated vars.
      **/
     @container main (width >= 38.5rem) {

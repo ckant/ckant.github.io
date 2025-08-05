@@ -20,12 +20,9 @@
 
 <style>
   main {
-    --main-gap-size: var(--spacing);
-    --project-min-width: 18.75rem;
-
     display: flex;
     flex-wrap: wrap;
-    gap: var(--main-gap-size);
+    gap: var(--spacing);
     container: main / inline-size;
     margin-right: auto;
     margin-left: auto;
@@ -46,7 +43,6 @@
 
   .projects-section {
     display: flex;
-
     flex-grow: 1;
     flex-shrink: 0;
     flex-basis: auto;
@@ -59,11 +55,10 @@
     border-bottom: var(--medium-border);
     background-color: var(--text-bg-color);
     width: fit-content;
-    color: #000000;
     font-variant: small-caps;
     font-weight: 200;
     font-size: 2.5rem;
-    line-height: var(--heading-line-height);
+    line-height: 1.15;
     font-family: var(--secondary-font-family), system-ui;
   }
 </style>

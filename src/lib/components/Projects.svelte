@@ -75,7 +75,7 @@
             stroke-width="2"
           />
         </svg>
-        <h2 class="project-name">{project.name}</h2>
+        <p class="project-name">{project.name}</p>
       </div>
       <p class="project-description">{project.description}</p>
       <p class="project-language">{project.language}</p>
@@ -85,22 +85,16 @@
 
 <style>
   .projects {
-    --projects-gap-size: var(--spacing);
-
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    gap: var(--projects-gap-size);
-
+    gap: var(--spacing);
     container: projects / inline-size;
   }
 
   .project {
-    /* 1 column */
     --one-column-project-width: 100%;
-
-    /* 2 columns */
-    --two-column-project-width: calc((100% - var(--projects-gap-size)) / 2);
+    --two-column-project-width: calc((100% - var(--spacing)) / 2);
 
     width: var(--one-column-project-width);
     min-width: var(--project-min-width);
@@ -109,7 +103,7 @@
      * Switch to 2 column layout if 2 projects can fit.
      *
      * Note:
-     * This is `var(--project-min-width) * 2 + var(--gap-size)`.
+     * This is `var(--project-min-width) * 2 + var(--spacing)`.
      * Container size queries currently don't support calculated vars.
      **/
     @container projects (width >= 38.5rem) {
@@ -126,17 +120,15 @@
     box-shadow: var(--box-shadow);
     border: var(--normal-border);
     border-radius: var(--border-radius);
-
     background-color: var(--text-bg-color);
     padding: var(--spacing);
-
-    color: var(--text-color);
+    color: unset;
     text-decoration: none;
 
     &:after {
       position: absolute;
-      top: calc(0rem - var(--normal-border-size));
-      left: calc(0rem - var(--normal-border-size));
+      top: calc(0rem - var(--normal-border-width));
+      left: calc(0rem - var(--normal-border-width));
       width: calc(100% + var(--normal-box-outline-size));
       height: calc(100% + var(--normal-box-outline-size));
       content: "";
@@ -165,18 +157,16 @@
   }
 
   .project-icon {
-    aspect-ratio: 1;
-    width: 1.25rem;
+    width: var(--icon-size);
+    height: var(--icon-size);
     color: var(--secondary-bg-color);
   }
 
   .project-name {
     font-weight: 500;
-    font-size: 1rem;
   }
 
   .project-description {
-    font-weight: 400;
     font-size: 0.875rem;
   }
 
