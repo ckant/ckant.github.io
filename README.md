@@ -20,6 +20,7 @@
 <div align="center"><img src="media/preview.png" alt="preview"></div>
 
 ## Credits
+
 - [Neobrutalism components](https://www.neobrutalism.dev) for neobrutalist theme inspiration
 - Fonts:
   - [Outfit](https://github.com/Outfitio/Outfit-Fonts) for the heading font

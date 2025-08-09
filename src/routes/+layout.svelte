@@ -75,6 +75,7 @@
     --pic-min-width: var(--project-min-width);
     --pic-max-width: 25rem;
 
+    --logo-size: 2.25rem;
     --button-size: 2.25rem;
     --icon-size: 1.2rem;
     --cat-height: 1.75rem;
