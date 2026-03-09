@@ -1,5 +1,17 @@
 [
   {
+    "name": "codemirror-markdown-tables",
+    "link": "https://github.com/ckant/codemirror-markdown-tables",
+    "description": "CodeMirror extension that turns Markdown tables into interactive components",
+    "language": "TypeScript"
+  },
+  {
+    "name": "joplin-plugin-better-tables",
+    "link": "https://github.com/ckant/joplin-plugin-better-tables",
+    "description": "Powerful interactive table editor for Joplin notes",
+    "language": "TypeScript"
+  },
+  {
     "name": "joplin-plugin-better-code-blocks",
     "link": "https://github.com/ckant/joplin-plugin-better-code-blocks",
     "description": "Joplin plugin that enhances code blocks with inline rendering, autocompletion, and more",
